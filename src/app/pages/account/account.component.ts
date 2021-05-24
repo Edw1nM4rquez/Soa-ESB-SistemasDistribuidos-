@@ -12,6 +12,8 @@ export class AccountComponent implements OnInit {
 
   public subscribes: Subscription[] = [];
   public groupCuenta: any[];
+  public groupCuentaPich: any[];
+  public groupCuentaBan: any[];
   public auxFlag: boolean;
   public angForm: FormGroup;
 
@@ -52,8 +54,22 @@ export class AccountComponent implements OnInit {
 
     });
 
+    let cuentaPich = await this.accountService.getAccountPich().subscribe(res => {
+     
+      this.groupCuentaPich = res.map((item: any) => { return { id: item.cuenta.id, titular: item.cuenta.titular, ci: item.cuenta.ci, banco: item.cuenta.banco, monto: item.cuenta.monto } });
+  
+    });
+
+    let cuentaBan = await this.accountService.getAccountBan().subscribe(res => {
+     
+      this.groupCuentaBan = res.map((item: any) => { return { id: item.cuenta.id, titular: item.cuenta.titular, ci: item.cuenta.ci, banco: item.cuenta.banco, monto: item.cuenta.monto } });
+  
+    });
+
     this.subscribes.push(
-      cuenta
+      cuenta,
+      cuentaPich,
+      cuentaBan
     );
   }
 

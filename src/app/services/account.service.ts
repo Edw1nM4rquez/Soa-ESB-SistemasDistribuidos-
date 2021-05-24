@@ -18,9 +18,25 @@ export class AccountService {
   getAccount() {
     return this.http.get(`${baseUrl}/GetAcoountApi/`).pipe(map((data: any) => data));
   }
+  getAccountPich() {
+    return this.http.get(`${baseUrl}/getUserPich/`).pipe(map((data: any) => data));
+  }
+  getAccountBan() {
+    return this.http.get(`${baseUrl}/getUserBan/`).pipe(map((data: any) => data));
+  }
+
+
 
   getTransaccion() {
     return this.http.get(`${baseUrl}/GetTransaccions/`).pipe(map((data: any) => data));
+  }
+
+  getTransaccionPich() {
+    return this.http.get(`${baseUrl}/getTransaccionPi/`).pipe(map((data: any) => data));
+  }
+
+  getTransaccionBan() {
+    return this.http.get(`${baseUrl}/getTransaccionBan/`).pipe(map((data: any) => data));
   }
 
   getLibros() {

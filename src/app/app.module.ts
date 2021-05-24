@@ -12,6 +12,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppRoutingModule } from './app.routing';
 import { ComponentsModule } from './components/components.module';
+import { ViewTransaccionPichComponent } from './pages/view-transaccion-pich/view-transaccion-pich.component';
+import { ViewTransaccionBanComponent } from './pages/view-transaccion-ban/view-transaccion-ban.component';
  
 
 @NgModule({
@@ -28,7 +30,7 @@ import { ComponentsModule } from './components/components.module';
   declarations: [
     AppComponent,
     AdminLayoutComponent,
-    AuthLayoutComponent
+    AuthLayoutComponent,
   ],
   providers: [],
   bootstrap: [AppComponent]

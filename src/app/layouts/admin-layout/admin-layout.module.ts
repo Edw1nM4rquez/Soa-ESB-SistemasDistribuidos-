@@ -15,6 +15,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AccountComponent } from 'src/app/pages/account/account.component';
 import { ViewTransaccionComponent } from 'src/app/pages/view-transaccion/view-transaccion.component';
 import { LibrosComponent } from 'src/app/pages/libros/libros.component';
+import { ViewTransaccionPichComponent } from 'src/app/pages/view-transaccion-pich/view-transaccion-pich.component';
+import { ViewTransaccionBanComponent } from 'src/app/pages/view-transaccion-ban/view-transaccion-ban.component';
 // import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
@@ -35,7 +37,9 @@ import { LibrosComponent } from 'src/app/pages/libros/libros.component';
     MapsComponent,
     AccountComponent,
     ViewTransaccionComponent,
-    LibrosComponent
+    LibrosComponent,
+    ViewTransaccionPichComponent,
+    ViewTransaccionBanComponent
   ]
 })
 
