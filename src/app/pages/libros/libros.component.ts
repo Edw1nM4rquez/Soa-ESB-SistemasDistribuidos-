@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { AccountService } from 'src/app/services/account.service';
 
@@ -11,14 +12,30 @@ export class LibrosComponent implements OnInit {
 
   public subscribes: Subscription[] = [];
   public groupLibros: any[];
+  public auxFlag: boolean;
+  public angForm: FormGroup;
+
 
   constructor(
-    private accountService: AccountService
-  ) { }
+    private accountService: AccountService,
+    private fb: FormBuilder,
+  ) {
+    this.createForm();
+   }
 
   ngOnDestroy(): void {
     this.subscribes.forEach((subscription) => {
       subscription.unsubscribe();
+    });
+  }
+
+
+  createForm() {
+    this.angForm = this.fb.group({
+      tipo: ['Transferencia', Validators.required],
+      bandest: [null, Validators.required],
+      banorigen: [null, Validators.required],
+      monto: ['5', Validators.required], disabled: true,
     });
   }
 
@@ -38,5 +55,19 @@ export class LibrosComponent implements OnInit {
       libros
     );
   }
+  async senDepositop(){
+    let sendTrans = await this.accountService.sendTransferencia(this.angForm.value).subscribe(res => {
+      console.log("por", res);
+    },
+      error => { console.log("err", error) });
+    this.subscribes.push(sendTrans);
+ }
 
+ get tipo() {
+  return this.angForm.get('tipo').value;
+}
+
+ resetForms(){
+   this.angForm.reset();
+ }
 }

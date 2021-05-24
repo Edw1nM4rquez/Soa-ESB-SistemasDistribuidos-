@@ -15,7 +15,6 @@ export class AccountComponent implements OnInit {
   public auxFlag: boolean;
   public angForm: FormGroup;
 
-
   constructor(
     private accountService: AccountService,
     private fb: FormBuilder,

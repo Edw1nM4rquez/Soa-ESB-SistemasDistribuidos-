@@ -4,27 +4,101 @@
             <!--Desde aqui-->
             <div class="container p-4">
                 <div class="row">
-                        <div class="col-md-4"  *ngFor="let item of groupLibros">
-                            <div class="card">
-                                <div class="card-header">
-                                   {{item.title}} / {{item.autor}}
+                    <div class="col-md-4" *ngFor="let item of groupLibros">
+                        <div class="card">
+                            <div class="card-header">
+                                {{item.title}} / {{item.autor}}
+                            </div>
+                            <img src="{{item.image}}" class="card-img-top">
+                            <div class="card-body">
+                                <p>
+                                    {{item.descripcion}}
+
+                                </p>
+                                <div class="car">
+                                    <h5>Precio: 5</h5> 
                                 </div>
-                                <img src="{{item.image}}" class="card-img-top">
-                                <div class="card-body">
-                                    <p>
-                                        {{item.description}}
-                                       
-                                    </p>
-                                </div>
-                                <div class="card-footer">
-                                    <a class="btn btn-danger" href="/delete/<%= libros.user.id %>">
-                                        Comprar
-                                    </a>
+                            </div>
+                            <div class="card-footer">
+                                <!-- Button trigger modal -->
+                                <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                                    data-bs-target="#exampleModal">
+                                    Comprar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Realizar la Compra</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="container" >
+                                <div class="card" style="padding: 10px 10px;">
+                                    <form autocomplete="off" [formGroup]="angForm" id="loginForm"
+                                        (ngSubmit)="senDepositop()">
+
+                                        <div class="form-group">
+
+                                            <label for="exampleFormControlSelect1">Tipo de Transaccion</label>
+                                            <select class="form-control" formControlName="tipo"
+                                                id="exampleFormControlSelect1">
+                                                
+                                                <option>Transferencia</option>
+                                            </select>
+                                        </div>
+
+
+                                        <div class="form-group">
+                                            <label for="exampleFormControlSelect1">Banco Remitente</label>
+                                            <select class="form-control" id="exampleFormControlSelect1"
+                                                formControlName="banorigen">
+                                                <option>Banco del Pacifico</option>
+                                                <option>Banco del Pinchincha</option>
+                                                <option>Ban Ecuador</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="form-group" *ngIf="tipo == 'Transferencia'">
+                                            <label for="exampleFormControlSelect1">Banco destino</label>
+                                            <select class="form-control" id="exampleFormControlSelect1"
+                                                formControlName="bandest">
+                                                <option>Banco del Pacifico</option>
+                                                <option>Banco del Pinchincha</option>
+                                                <option>Ban Ecuador</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="exampleFormControlInput1">Monto</label>
+                                            <input type="text" class="form-control" id="exampleFormControlInput1"
+                                                formControlName="monto"  placeholder="000.00 $" disabled>
+                                        </div>
+
+                                        <button style="align-items: center;" type="submit"
+                                            class="btn btn-primary">Realizar
+                                            Compra</button>
+                                    </form>
                                 </div>
                             </div>
                         </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" (click)="resetForms()" data-bs-dismiss="modal">Close</button>
+                        </div>
+                        
+                    </div>
                 </div>
             </div>
+
         </div>
     </div>
 </div>
