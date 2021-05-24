@@ -8,6 +8,8 @@ import { TablesComponent } from '../../pages/tables/tables.component';
 import { AccountComponent } from 'src/app/pages/account/account.component';
 import { ViewTransaccionComponent } from 'src/app/pages/view-transaccion/view-transaccion.component';
 import { LibrosComponent } from 'src/app/pages/libros/libros.component';
+import { ViewTransaccionPichComponent } from 'src/app/pages/view-transaccion-pich/view-transaccion-pich.component';
+import { ViewTransaccionBanComponent } from 'src/app/pages/view-transaccion-ban/view-transaccion-ban.component';
 
 export const AdminLayoutRoutes: Routes = [
     { path: 'dashboard',      component: DashboardComponent },
@@ -18,4 +20,6 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'account',           component: AccountComponent },
     { path: 'transaccion',           component: ViewTransaccionComponent },
     { path: 'libros',           component: LibrosComponent },
+    { path: 'transaccionPich',           component: ViewTransaccionPichComponent },
+    { path: 'transaccionBan',           component: ViewTransaccionBanComponent },
 ];
