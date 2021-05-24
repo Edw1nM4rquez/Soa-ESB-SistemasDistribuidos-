@@ -44,7 +44,7 @@ export class AccountService {
     } else if (object.tipo == 'Retiro') {
       params = params.append('monto', object.monto);
       params = params.append('banorigen', object.banorigen);
-      params = params.append('tipo', object.tipo);
+      //params = params.append('tipo', object.tipo);
       this.Url = 'postRetiro';
 
     } else if (object.tipo == 'Deposito') {
