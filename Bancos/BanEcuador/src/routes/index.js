@@ -15,9 +15,6 @@ let cuentas = JSON.parse(jsoncuenta);
 const jsontransacciones = fs.readFileSync('src/transaccion.json', 'utf-8')
 let transacciones = JSON.parse(jsontransacciones);
 
-const jsondeposito = fs.readFileSync('src/deposito.json', 'utf-8')
-let depositos = JSON.parse(jsondeposito);
-
 
 router.get('/', (req, res) => {
     res.render('index.ejs', {
@@ -37,25 +34,23 @@ router.get('/transaccion', (req, res) => {
     res.send(transacciones);
 });
 
-//router.get('/deposito', (req, res) => {
-  //  res.send(depositos);
-//});
+
 router.post('/postDeposito', (req, res) => {
 
     console.log("Parametros", req.body);
 
     var monto = req.body.monto;
     var tipo = req.body.tipo;
-    var bancodest = req.body.bandest;
+    var bancoorigen = req.body.banorigen;
 
-    console.log("Monto"+monto+"tipo"+tipo+"banco destino"+bancodest);
+    console.log("Monto"+monto+"tipo"+tipo+"banco destino"+bancoorigen);
 
     let newTransaccion = {
         "transaccion": {
             id: uuidv4(),
             monto,
             tipo,
-            bancodest
+            bancoorigen
             
         }
     }

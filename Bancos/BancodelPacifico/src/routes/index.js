@@ -43,16 +43,16 @@ router.post('/postDeposito', (req, res) => {
 
     var monto = req.body.monto;
     var tipo = req.body.tipo;
-    var bancodest = req.body.bandest;
+    var bancoorigen = req.body.banorigen;
 
-    console.log("Monto"+monto+"tipo"+tipo+"banco destino"+bancodest);
+    console.log("Monto"+monto+"tipo"+tipo+"banco destino"+bancoorigen);
 
     let newTransaccion = {
         "transaccion": {
             id: uuidv4(),
             monto,
             tipo,
-            bancodest
+            bancoorigen
             
         }
     }

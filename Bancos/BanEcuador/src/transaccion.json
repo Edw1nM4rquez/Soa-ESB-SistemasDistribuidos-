@@ -79,5 +79,13 @@
             "bancodest": "Ban Ecuador",
             "bancoorigen": "Banco del Pinchincha"
         }
+    },
+    {
+        "transaccion": {
+            "id": "f230f6aa-6ca1-4ee9-a129-4288f283e3b1",
+            "monto": "10",
+            "tipo": "Deposito",
+            "bancoorigen": "Ban Ecuador"
+        }
     }
 ]
