@@ -50,7 +50,9 @@ export class AccountService {
     } else if (object.tipo == 'Deposito') {
       params = params.append('monto', object.monto);
       params = params.append('banorigen', object.banorigen);
+
       params = params.append('bandest', object.banorigen);
+
       params = params.append('tipo', object.tipo);
       this.Url = 'postDeposito';
 
