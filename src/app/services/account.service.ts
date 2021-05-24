@@ -31,6 +31,10 @@ export class AccountService {
     return this.http.get(`${baseUrl}/getDeposito/`).pipe(map((data: any) => data))
   }
 
+  getRetiro(){
+    return this.http.get(`${baseUrl}/getRetiro/`).pipe(map((data: any) => data))
+  }
+
   sendTransferencia(object: any) {
     console.log("Objecto lle", object)
     let params = new HttpParams();
