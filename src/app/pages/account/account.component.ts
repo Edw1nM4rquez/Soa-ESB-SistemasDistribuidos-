@@ -70,6 +70,7 @@ export class AccountComponent implements OnInit {
     this.subscribes.push(sendTrans);
   }
 
+
   get tipo() {
     return this.angForm.get('tipo').value;
   }

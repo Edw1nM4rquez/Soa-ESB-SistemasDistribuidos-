@@ -12,10 +12,11 @@ let books = JSON.parse(jsonbooks);
 const jsoncuenta = fs.readFileSync('src/cuenta.json', 'utf-8')
 let cuentas = JSON.parse(jsoncuenta);
 
-
 const jsontransacciones = fs.readFileSync('src/transaccion.json', 'utf-8')
 let transacciones = JSON.parse(jsontransacciones);
 
+const jsondeposito = fs.readFileSync('src/deposito.json', 'utf-8')
+let depositos = JSON.parse(jsondeposito);
 
 
 router.get('/', (req, res) => {
@@ -33,10 +34,36 @@ router.get('/user', (req, res) => {
 });
 
 router.get('/transaccion', (req, res) => {
-
-    res.send(transacciones)
+    res.send(transacciones);
 });
 
+//router.get('/deposito', (req, res) => {
+  //  res.send(depositos);
+//});
+router.post('/postDeposito', (req, res) => {
+
+    console.log("Parametros", req.body);
+
+    var monto = req.body.monto;
+    var tipo = req.body.tipo;
+    var bancodest = req.body.bandest;
+
+    console.log("Monto"+monto+"tipo"+tipo+"banco destino"+bancodest);
+
+    let newTransaccion = {
+        "transaccion": {
+            id: uuidv4(),
+            monto,
+            tipo,
+            bancodest
+            
+        }
+    }
+
+    
+
+    
+});
 
 
 router.post('/comprobarFondos', (req, res) => {
@@ -109,7 +136,6 @@ router.post('/transferencia', function (req, res) {
             
         }
     }
-
 
     let updateCuenta = {
         "cuenta": {
