@@ -27,6 +27,10 @@ export class AccountService {
     return this.http.get(`${baseUrl}/getLibros/`).pipe(map((data: any) => data));
   }
 
+  getDeposito(){
+    return this.http.get(`${baseUrl}/getDeposito/`).pipe(map((data: any) => data))
+  }
+
   sendTransferencia(object: any) {
     console.log("Objecto lle", object)
     let params = new HttpParams();
@@ -50,9 +54,7 @@ export class AccountService {
     } else if (object.tipo == 'Deposito') {
       params = params.append('monto', object.monto);
       params = params.append('banorigen', object.banorigen);
-
       params = params.append('bandest', object.banorigen);
-
       params = params.append('tipo', object.tipo);
       this.Url = 'postDeposito';
 
