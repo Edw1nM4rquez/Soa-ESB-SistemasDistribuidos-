@@ -121,6 +121,13 @@
             "bancodest": "Banco del Pacifico",
             "bancoorigen": "Banco del Pinchincha"
         }
+    },
+    {
+        "transaccion": {
+            "id": "c8bc911f-975f-4a74-8b50-3600ae87a5d9",
+            "monto": "5",
+            "tipo": "Retiro",
+            "bancoorigen": "Banco del Pacifico"
+        }
     }
-
 ]

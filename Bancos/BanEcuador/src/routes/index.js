@@ -98,7 +98,6 @@ router.post('/postRetiro', (req, res) => {
                 id: uuidv4(),
                 monto,
                 tipo,
-                bancodest,
                 bancoorigen
             }
         }
