@@ -21,9 +21,11 @@ export class AccountComponent implements OnInit {
     private accountService: AccountService,
     private fb: FormBuilder,
   ) {
+    //inicializamos el metodo para el formulario reactivo
     this.createForm();
   }
 
+  //este metodo destruye las sesiones creadas por las subscripciones
   ngOnDestroy(): void {
     this.subscribes.forEach((subscription) => {
       subscription.unsubscribe();
@@ -38,6 +40,7 @@ export class AccountComponent implements OnInit {
   }
 
   createForm() {
+    //Creamos el formulario reactivo, con sus elemtos y validadores
     this.angForm = this.fb.group({
       tipo: ['Transferencia', Validators.required],
       bandest: [null, Validators.required],
@@ -48,12 +51,13 @@ export class AccountComponent implements OnInit {
 
 
   async CargarDatos() {
+    //Obtenemos los datos del Usuario banco del Pacifico 
     let cuenta = await this.accountService.getAccount().subscribe(res => {
 
       this.groupCuenta = res.map((item: any) => { return { id: item.cuenta.id, titular: item.cuenta.titular, ci: item.cuenta.ci, banco: item.cuenta.banco, monto: item.cuenta.monto } });
 
     });
-
+   //Obtenemos los datos del Usuario banco de Pichincha
     let cuentaPich = await this.accountService.getAccountPich().subscribe(res => {
      
       this.groupCuentaPich = res.map((item: any) => { return { id: item.cuenta.id, titular: item.cuenta.titular, ci: item.cuenta.ci, banco: item.cuenta.banco, monto: item.cuenta.monto } });
