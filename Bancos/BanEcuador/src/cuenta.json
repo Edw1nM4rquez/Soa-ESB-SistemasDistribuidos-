@@ -1,11 +1,1 @@
-[
-    {
-        "cuenta": {
-            "id": 1201245,
-            "titular": "Evelyn Pintado",
-            "ci": "0152127512",
-            "banco": "Ban Ecuador",
-            "monto": 1015
-        }
-    }
-]
+[{"cuenta":{"id":1201245,"titular":"Evelyn Pintado","ci":"0152127512","banco":"Ban Ecuador","monto":1504.31}}]
