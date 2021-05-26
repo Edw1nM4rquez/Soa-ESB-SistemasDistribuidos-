@@ -165,7 +165,7 @@ router.post('/comprobarFondos', (req, res) => {
 
         }
 
-        cuentas = cuentas.filter(cuenta => cuenta.cuenta.id != 1201245);
+        cuentas = cuentas.filter(cuenta => cuenta.cuenta.id != 131245);
         const jsnCuentas = JSON.stringify(cuentas);
         fs.writeFileSync('src/cuenta.json', jsnCuentas, 'utf-8');
 
@@ -212,7 +212,7 @@ router.post('/transferencia', function (req, res) {
         }
 
     }
-    cuentas = cuentas.filter(cuenta => cuenta.cuenta.id != 1201245);
+    cuentas = cuentas.filter(cuenta => cuenta.cuenta.id != 131245);
     const jsnCuentas = JSON.stringify(cuentas);
     fs.writeFileSync('src/cuenta.json', jsnCuentas, 'utf-8');
 

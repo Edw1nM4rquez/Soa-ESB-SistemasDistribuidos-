@@ -15,6 +15,9 @@ export class AccountService {
     private http: HttpClient
   ) { }
 
+
+
+
   getAccount() {
     return this.http.get(`${baseUrl}/GetAcoountApi/`).pipe(map((data: any) => data));
   }

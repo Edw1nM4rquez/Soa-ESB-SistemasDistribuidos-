@@ -32,11 +32,13 @@ router.get('/user', (req, res) => {
     res.send(cuentas);
 });
 
+//metodo get para recuperar las transacciones
 router.get('/transaccion',(req,res)=>{
     
     res.send(transacciones)
 });
 
+//metodo post para realizar los depositos.
 router.post('/postDeposito', (req, res) => {
 
     console.log("Parametros", req.body);
@@ -83,7 +85,9 @@ router.post('/postDeposito', (req, res) => {
     
 });
 
+//metodo post para realizar el deposito.
 router.post('/postRetiro', (req, res) => {
+    console.log("RETIRO");
     console.log("Parametros", req.body);
     var monto = req.body.monto;
     var tipo = req.body.tipo;
@@ -91,6 +95,9 @@ router.post('/postRetiro', (req, res) => {
 
     if (parseFloat(monto) > parseFloat(cuentas[0].cuenta.monto)) {
         console.log('NO TIENE FONDOS');
+        res.send(500,'showAlert') 
+        //window.alert('NO TIENE SUFICIENTES FONDOS');
+        //res.send();
 
 
     } else {
@@ -133,6 +140,8 @@ router.post('/postRetiro', (req, res) => {
     res.send();
 });
 
+// metodo post para comprobar los fondos de las cuentas bancarias en los bancos antes 
+// de realizar una transfrencia interbancaria.
 router.post('/comprobarFondos', (req, res) => {
     console.log("Parametros", req.body);
     var monto = req.body.monto;
@@ -186,7 +195,8 @@ router.post('/comprobarFondos', (req, res) => {
 });
 
 
-
+// metodo post para realizar la transferencia, en este metodo se inrementa
+// el monto en la cuenta del banco destino
 router.post('/transferencia', function (req, res) {
     var monto = req.body.monto;
     var tipo = req.body.tipo;
@@ -256,7 +266,5 @@ router.post('/mi-cuentaBank', (req, res) => {
     res.redirect('/');
 
 });
-
-
 
 module.exports = router;
